@@ -40,9 +40,6 @@ brew cask install steam
 # verify 
 brew doctor
 
-# link cask apps to alfred
-brew cask alfred link
-
 # cleanup
 brew cleanup
 
