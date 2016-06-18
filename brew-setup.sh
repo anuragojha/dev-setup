@@ -18,7 +18,6 @@ brew cask install atom
 brew cask install audacity
 brew cask install flux
 brew cask install gimp
-brew cask install github
 brew cask install github-desktop
 brew cask install pycharm
 brew cask install intellij-idea
