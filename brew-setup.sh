@@ -3,6 +3,7 @@
 
 # get cask
 brew tap caskroom/cask
+brew tap caskroom/versions
 
 # update
 brew update
@@ -20,7 +21,7 @@ brew cask install java
 brew cask install iterm2
 brew cask install github-desktop
 brew cask install pycharm
-brew cask install intellij-idea
+brew cask install intellij-idea-ce
 brew cask install sourcetree
 
 brew cask install skype
