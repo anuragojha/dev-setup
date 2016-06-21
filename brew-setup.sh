@@ -1,16 +1,17 @@
-# get brew
+echo "Installing brew "
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-# get cask
+echo "Installing Cask "
+brew install caskroom/cask/brew-cask
 brew tap caskroom/cask
 brew tap caskroom/versions
 
-# update
+echo "Updating app lists"
 brew update
 brew upgrade
+brew cask update
 
-# install apps
-
+echo "Installing apps"
 brew cask install atom
 brew cask install textmate
 brew cask install openoffice
@@ -23,6 +24,8 @@ brew cask install github-desktop
 brew cask install pycharm
 brew cask install intellij-idea-ce
 brew cask install sourcetree
+brew install maven
+brew install ant
 
 brew cask install skype
 brew cask install google-hangouts
@@ -44,10 +47,10 @@ brew cask install gimp
 brew cask install imageoptim
 brew cask install keka
 
-# verify 
+echo "Final Check/ Running brew doctor."
 brew doctor
 
-# cleanup
+echo "Clean downloaded files."
 brew cleanup
 
 # install developer command line tools
