@@ -47,6 +47,7 @@ brew cask install audacity
 brew cask install gimp
 brew cask install imageoptim
 brew cask install keka
+brew cask install the-unarchiver
 
 echo "Final Check/ Running brew doctor."
 brew doctor
