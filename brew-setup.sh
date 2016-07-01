@@ -14,7 +14,7 @@ brew cask update
 echo "Installing apps"
 brew cask install atom
 brew cask install textmate
-brew cask install openoffice
+brew cask install libreoffice
 brew cask install evernote
 brew cask install adobe-reader
 
