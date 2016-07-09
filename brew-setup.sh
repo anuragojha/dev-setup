@@ -39,9 +39,11 @@ brew cask install transmission
 brew cask install alfred
 brew cask install flux
 brew cask install dash
+brew cask install nosleep
 
 brew cask install steam
 brew cask install vlc
+brew cask install plex-media-server
 brew cask install spotify
 brew cask install audacity
 brew cask install gimp
