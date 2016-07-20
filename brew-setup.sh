@@ -19,6 +19,7 @@ brew cask install evernote
 brew cask install adobe-reader
 
 brew cask install java
+brew cask install caskroom/versions/java7
 brew install python
 brew cask install iterm2
 brew cask install github-desktop
