@@ -34,6 +34,7 @@ brew cask install google-hangouts
 brew cask install google-chrome
 brew cask install google-drive
 
+brew install wget
 brew cask install transmit
 brew cask install transmission
 
