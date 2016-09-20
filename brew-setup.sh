@@ -43,6 +43,7 @@ brew cask install flux
 brew cask install dash
 brew cask install nosleep
 
+brew cask install xee
 brew cask install steam
 brew cask install vlc
 brew cask install plex-media-server
