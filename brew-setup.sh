@@ -26,6 +26,7 @@ brew cask install github-desktop
 brew cask install pycharm
 brew cask install intellij-idea-ce
 brew cask install sourcetree
+brew install rbenv ruby-build
 brew install maven
 brew install ant
 
