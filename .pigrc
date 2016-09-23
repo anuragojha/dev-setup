@@ -1,0 +1,13 @@
+-- open up permissions for running jobs
+SET mapreduce.job.acl-view-job *;
+SET mapreduce.job.acl-modify-job *;
+
+-- clone long running tasks
+SET mapreduce.map.speculative true;
+SET mapreduce.reduce.speculative true;
+
+-- start reducers only after all mappers complete.
+-- default 0.95 spawns reducers too soon for long tail
+-- jobs where trailing mappers take a long time.
+SET tez.shuffle-vertex-manager.min-src-fraction 1.0;
+SET tez.shuffle-vertex-manager.max-src-fraction 1.0;
