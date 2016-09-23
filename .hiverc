@@ -1,0 +1,27 @@
+SET hive.cli.print.current.db=true;
+SET hive.cli.print.header=true;
+
+-- open up permissions for running jobs
+SET mapreduce.job.acl-view-job=*;
+SET mapreduce.job.acl-modify-job=*;
+
+-- clone long running tasks
+SET mapreduce.map.speculative=true;
+SET mapreduce.reduce.speculative=true;
+
+-- set optimization flag that puts schema file to cache.
+-- reduce open calls
+SET hive.optimize.update.table.properties.from.serde=true;
+
+-- reduce part files
+SET hive.merge.mapfiles=true;
+SET hive.merge.mapredfiles=true;
+SET hive.merge.tezfiles=true;
+SET hive.merge.smallfiles.avgsize=268435456;
+
+-- start reducers only after all mappers complete.
+-- default 0.95 spawns reducers too soon for long tail
+-- jobs where trailing mappers take a long time.
+SET mapreduce.job.reduce.slowstart.completedmaps=0.9995;
+SET tez.shuffle-vertex-manager.min-src-fraction=0.9995;
+SET tez.shuffle-vertex-manager.max-src-fraction=1.0;
