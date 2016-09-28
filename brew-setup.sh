@@ -47,6 +47,7 @@ brew cask install nosleep
 brew cask install xee
 brew cask install steam
 brew cask install vlc
+brew install ffmpeg
 brew cask install plex-media-server
 brew cask install spotify
 brew cask install audacity
