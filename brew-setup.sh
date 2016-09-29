@@ -36,6 +36,7 @@ brew cask install google-chrome
 brew cask install google-drive
 
 brew install wget
+brew install aria2
 brew cask install transmit
 brew cask install transmission
 
