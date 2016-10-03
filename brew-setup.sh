@@ -44,6 +44,7 @@ brew cask install alfred
 brew cask install flux
 brew cask install dash
 brew cask install nosleep
+brew cask install istat-menus
 
 brew cask install xee
 brew cask install steam
