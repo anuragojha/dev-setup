@@ -187,7 +187,7 @@ function pretty_prompt {
 
 PROMPT_COMMAND=pretty_prompt
 
-
+# download and install the latest .bash_profile
 function bpupdate() {
     curl -fsSL https://raw.githubusercontent.com/anuragojha/dev-setup/master/.bash_profile -o $HOME/.bash_profile
     source ~/.bash_profile
