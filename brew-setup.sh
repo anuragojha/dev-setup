@@ -23,7 +23,7 @@ brew cask install caskroom/versions/java7
 brew install python
 brew cask install iterm2
 brew cask install github-desktop
-brew cask install pycharm
+brew cask install pycharm-ce
 brew cask install intellij-idea-ce
 brew cask install sourcetree
 brew install rbenv ruby-build
