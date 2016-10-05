@@ -21,6 +21,7 @@ brew cask install adobe-reader
 brew cask install java
 brew cask install caskroom/versions/java7
 brew install python
+brew install python3
 brew cask install iterm2
 brew cask install github-desktop
 brew cask install pycharm-ce
