@@ -188,6 +188,10 @@ function pretty_prompt {
 PROMPT_COMMAND=pretty_prompt
 
 
+function bpupdate() {
+    curl -fsSL https://raw.githubusercontent.com/anuragojha/dev-setup/master/brew-setup.sh -o $HOME/
+}
+
 # Generic Aliases
 if [ "$(uname)" == "Darwin" ]; then
     # Do something under Mac OS X platform
