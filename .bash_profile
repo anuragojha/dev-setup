@@ -212,6 +212,25 @@ alias q='exit'                                               # Logout
 alias vi='vim'                                               # launch vim
 
 
+function disable() {
+    case "$1" in
+        "indexing")    
+            sudo mdutil -a -i off
+            ;;
+            
+    esac
+}
+
+function enable() {
+    case "$1" in
+        "indexing")    
+            sudo mdutil -a -i on
+            ;;
+            
+    esac
+}
+
+
 # screen
 alias scl='screen -ls'
 
