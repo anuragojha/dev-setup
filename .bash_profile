@@ -189,7 +189,8 @@ PROMPT_COMMAND=pretty_prompt
 
 
 function bpupdate() {
-    curl -fsSL https://raw.githubusercontent.com/anuragojha/dev-setup/master/brew-setup.sh -o $HOME/
+    curl -fsSL https://raw.githubusercontent.com/anuragojha/dev-setup/master/.bash_profile -o $HOME/.bash_profile
+    source ~/.bash_profile
 }
 
 # Generic Aliases
