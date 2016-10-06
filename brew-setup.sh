@@ -64,6 +64,7 @@ brew doctor
 
 echo "Clean downloaded files."
 brew cleanup
+brew cask cleanup
 
 # install developer command line tools
 xcode-select --install
