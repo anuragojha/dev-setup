@@ -216,7 +216,7 @@ alias _="sudo"                                               # Execute with sudo
 alias q='exit'                                               # Logout
 alias vi='vim'                                               # launch vim
 
-
+# config utils
 function disable() {
     case "$1" in
         "indexing")    
@@ -253,6 +253,14 @@ function scd() {
   else
      screen -d
   fi
+}
+
+
+# date utils
+function date_list() {
+    DATE=$(date -d "$1" +%s);  # 2013-09-05
+    END=$(date -d "$2" +%s);   # 2013-09-10
+    while [[ "$DATE" -le "$END" ]]; do date -d "@$DATE" +%F; let DATE+=86400; done
 }
 
 
