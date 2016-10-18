@@ -235,6 +235,7 @@ function enable() {
     esac
 }
 
+alias blame-bird='python -c "$(curl -fsSL https://raw.githubusercontent.com/bwesterb/blame-bird/master/blame-bird.py)"'
 
 # screen
 alias scl='screen -ls'
