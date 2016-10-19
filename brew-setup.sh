@@ -31,6 +31,9 @@ brew install rbenv ruby-build
 brew install maven
 brew install ant
 
+brew cask install xquartz
+brew install wine
+
 brew cask install skype
 brew cask install google-hangouts
 brew cask install google-chrome
