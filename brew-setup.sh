@@ -33,6 +33,7 @@ brew install ant
 
 brew cask install xquartz
 brew install wine
+brew install winetricks
 
 brew cask install skype
 brew cask install google-hangouts
