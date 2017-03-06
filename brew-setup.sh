@@ -20,6 +20,7 @@ brew cask install libreoffice
 brew cask install evernote
 brew cask install adobe-reader
 
+echo "Installing dev tools"
 brew cask install java
 brew cask install caskroom/versions/java7
 brew install python
@@ -32,6 +33,10 @@ brew cask install sourcetree
 brew install rbenv ruby-build
 brew install maven
 brew install ant
+brew install jq    # like sed for json
+brew install tree  # view directory structure under CWD
+brew install bash-completion
+
 
 brew cask install xquartz
 brew install wine
@@ -57,6 +62,7 @@ brew cask install xee
 brew cask install steam
 brew cask install vlc
 brew install ffmpeg
+brew install lame
 brew cask install plex-media-server
 brew cask install spotify
 brew cask install audacity
@@ -71,17 +77,3 @@ brew doctor
 echo "Clean downloaded files."
 brew cleanup
 brew cask cleanup
-
-# install developer command line tools
-xcode-select --install
-
-
-# misc apps
-#   magnet
-#   Go2Shell
-
-# chrome apps
-#   auto refresh
-#   proxy switchyomega
-#   ublock origin
-#   tinyeye
