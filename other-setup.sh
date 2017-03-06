@@ -1,3 +1,19 @@
+# install developer command line tools
+xcode-select --install
+
+
+# misc apps
+#   magnet
+#   Go2Shell
+#   NoSleep
+#   DaisyDisk
+
+# chrome apps
+#   auto refresh
+#   proxy switchyomega
+#   ublock origin
+#   tinyeye
+
 # mac config
 brew install dockutil
 dockutil --remove all   # cleanup doc bar on fresh install
