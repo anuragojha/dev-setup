@@ -70,6 +70,7 @@ brew cask install gimp
 brew cask install imageoptim
 brew cask install keka
 brew cask install the-unarchiver
+brew install lz4
 
 echo "Final Check/ Running brew doctor."
 brew doctor
