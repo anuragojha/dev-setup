@@ -4,11 +4,14 @@
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 ### install powershell fonts
-mkdir ~/appconfig
-cd ~/appconfig
+TMPDIR=~/temp_$$
+mkdir ~/${TMPDIR}
+cd ~/${TMPDIR}
 git clone https://github.com/powerline/fonts.git
 cd fonts
 ./install.sh
+cd ..
+rm -rf fonts
 
 ### other goodies
 brew install zsh-syntax-highlighting
