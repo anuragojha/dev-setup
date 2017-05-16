@@ -52,13 +52,11 @@ brew install aria2
 brew cask install transmit
 brew cask install transmission
 
-brew cask install alfred
 brew cask install flux
 brew cask install dash
 brew cask install nosleep
 brew cask install istat-menus
 
-brew cask install xee
 brew cask install steam
 brew cask install vlc
 brew install ffmpeg
@@ -67,7 +65,6 @@ brew cask install plex-media-server
 brew cask install spotify
 brew cask install audacity
 brew cask install gimp
-brew cask install imageoptim
 brew cask install keka
 brew cask install the-unarchiver
 brew install lz4
