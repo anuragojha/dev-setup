@@ -1,5 +1,10 @@
 # dev-setup
 
+fetch bash_profile file
+```bash
+curl -fsSL https://raw.githubusercontent.com/anuragojha/dev-setup/master/.bash_profile -o $HOME/.bash_profile
+```
+
 install brew packages
 ```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/anuragojha/dev-setup/master/brew-setup.sh)"
