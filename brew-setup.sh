@@ -59,7 +59,7 @@ brew cask install istat-menus
 
 brew cask install steam
 brew cask install vlc
-brew install ffmpeg
+brew install ffmpeg --with-opus --with-libvpx --with-libvorbis --with-fdk-aac
 brew install lame
 brew cask install plex-media-server
 brew cask install spotify
