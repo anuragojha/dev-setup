@@ -2,14 +2,14 @@ echo "Installing brew "
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 echo "Installing Cask "
+brew install caskroom/cask/brew-cask
 brew tap caskroom/cask
-brew tap buo/cask-upgrade    # needed for brew cu
 
 echo "Updating app lists"
 brew update
 brew upgrade
 brew cask update
-brew cu                      # updates all installed casks
+brew cleanup && brew cask cleanup
 
 echo "Installing apps"
 brew cask install atom
