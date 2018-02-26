@@ -3,6 +3,13 @@ if [ "$(uname)" == "Darwin" ]; then
     export JAVA_HOME="$(/usr/libexec/java_home)"
 fi
 
+# decompress/ decode/ prettyfy
+alias deflate="perl -MCompress::Zlib -e 'undef $/; print uncompress(<>)'"   # decompress/ deflate
+alias escape="perl -p -MURI::Escape -e 'y/+/ /;$_=uri_escape$_'"            # url escape
+alias unescape="perl -p -MURI::Escape -e 'y/+/ /;$_=uri_unescape$_'"        # url unescape
+alias prettyxml="xmllint --format -"                                        # xml lint
+alias prettyjson="python -mjson.tool"                                       # json lint
+
 # setup grid exports
 # set HADOOP_HOME
 # add oozie to PATH
