@@ -1,0 +1,157 @@
+# set java version
+if [ "$(uname)" == "Darwin" ]; then
+    export JAVA_HOME="$(/usr/libexec/java_home)"
+fi
+
+# setup grid exports
+# set HADOOP_HOME
+# add oozie to PATH
+
+# beef up the memory available to the hadoop client apps
+# like hdfs, hive and pig
+export HADOOP_CLIENT_OPTS=" -Xmx2048m $HADOOP_CLIENT_OPTS"
+
+# hdfs
+alias d="hdfs dfs"                                         # Base Hadoop fs command
+alias dcat="d -cat"                                        # Output a file to standard out
+alias dtext="d -text"                                      # Decompress zip, deflate and TextRecordInputStream
+alias dchgrp="d -chgrp"                                    # Change group association of files
+alias dchmod="d -chmod"                                    # Change permissions
+alias dchown="d -chown"                                    # Change ownership
+alias dcfl="d -copyFromLocal"                              # Copy a local file reference to HDFS
+alias dctl="d -copyToLocal"                                # Copy a HDFS file reference to local
+alias dcount="d -count"
+alias dcp="d -cp"                                          # Copy files from source to destination
+alias ddu="d -du"                                          # Display aggregate length of files
+alias ddus="d -dus"                                        # Display a summary of file lengths
+alias dext="d -expunge"                                    # Remove/Empty the trash
+alias dget="d -get"                                        # Get a file from hadoop to local
+alias dgetm="d -getmerge"                                  # Get files from hadoop to a local file
+alias dls="d -ls"                                          # List files
+alias dll="d -lsr"                                         # List files recursivly
+alias dmkdir="d -mkdir"                                    # Make a directory
+alias dmfl="d -moveFromLocal"                              # Move a local file reference to HDFS
+alias dmtl="d -moveToLocal"                                # Move a HDFS file reference to local
+alias dmv="d -mv"                                          # Move a file
+alias dput="d -put"                                        # Put a file from local to hadoop
+alias drm="d -rm"                                          # Remove a file
+alias drmr="d -rmr"                                        # Remove a file recursively
+alias dsr="d -setrep"                                      # Set the replication factor of a file
+alias dstat="d -stat"                                      # Returns the stat information on the path
+alias dtail="d -tail"                                      # Tail a file
+alias dtest="d -test"                                      # Run a series of file tests. See options
+alias dtest="d -stat"
+alias dtouchz="d -touchz"                                  # Create a file of zero length
+
+# additional aliases/functions
+alias hct='hdfs dfs -cat'
+alias dcat='hdfs dfs -cat'
+alias hfs='hdfs dfs'
+alias hls='hdfs dfs -ls'
+
+function ddub() {                                           # Display aggregate size of files descending
+   hdfs dfs -du "$@" | sort -k 1 -n -r
+}
+
+function dbzcat() {                                          # hdfs cat and decompress using bzcat
+   hdfs dfs -cat "$@" | bzcat
+}
+
+function dzcat() {                                           # hdfs cat and decompress using bzcat
+   hdfs dfs -cat "$@" | zcat
+}
+
+function ddeflate() {                                        # hdfs cat and decompress using deflate
+   echo "Use dtext command instead."
+   hdfs dfs -cat "$@" | perl -MCompress::Zlib -e 'undef $/; print uncompress(<>)'
+}
+
+
+
+# hadoop/mapreduce
+alias mj="mapred job"                                        # Base Hadoop job command
+alias mjstat="mj -status"                                    # Print completion percentage and all job counters
+alias mjkill="mj -kill"                                      # Kills the job
+alias mjhist="mj -history"                                   # Prints job details, failed and killed tip details
+alias mjlist="mj -list"                                      # List jobs
+
+alias mq="mapred queue"                                      # Base Hadoop job command
+alias mqacl="mq -showacls"                                   # Displays list of queue user can submit jobs
+
+# yarn
+alias ya="yarn application"                                  # Base yarn application command
+alias yal="ya -list"                                         # Lists applications from the RM.
+alias yas="ya -status"                                       # Prints the status of the application.
+alias yak="ya -kill"                                         # Kills the application.
+
+# oozie
+# set OOZIE_CLIENT_HOME
+# set OZSRVR
+
+alias oj="$OOZIE_CLIENT_HOME/bin/oozie job -oozie ${OZSRVR} -auth KERBEROS -len 10000"         # Base oj command
+alias ojs="$OOZIE_CLIENT_HOME/bin/oozie jobs -oozie ${OZSRVR} -auth KERBEROS -len 10000"       # Base ojs command
+alias owv="$OOZIE_CLIENT_HOME/bin/oozie validate"                                   # Validate a workflow xml
+alias ojrun="oj -run"                                        # Run a job
+alias ojresume="oj -resume"                                  # Resume a job
+alias ojrerun="oj -rerun"                                    # Rerun a job
+alias ojsuspend="oj -suspend"                                # Suspend a job
+alias ojkill="oj -kill"                                      # Kill a job
+alias ojinfo="oj -info"                                      # Display current info on a job
+alias oji="ojinfo"
+alias ojlist="ojs -localtime"                                # Display a list of jobs
+alias ojlistr="ojs -localtime -filter status=RUNNING"        # Display a list of running jobs
+alias ojwf='ojs'                                             # Display list of running workflows
+alias ojcoord='ojs -jobtype coordinator '                    # Display list of coordinators
+alias ojco='ojcoord'
+alias ojbu='ojs -jobtype bundle'                             # Display list of bundles
+
+
+# hive
+HIVE_CMD="hive \
+        -hiveconf mapreduce.job.acl-modify-job=* \
+        -hiveconf mapreduce.job.acl-view-job=* \
+        -hiveconf hive.cli.print.current.db=true \
+        -hiveconf hive.cli.print.header=true \
+        -hiveconf hive.exec.dynamic.partition.mode=nonstrict"
+alias hivecli='$HIVE_CMD'
+
+
+# pig alias
+# set PIG_HOME
+PIG_VER=0.14
+
+PIG_CMD="$PIG_HOME/bin/pig \
+        -useHCatalog \
+        -param PIG_HOME=$PIG_HOME \
+        -Dmapreduce.job.acl-view-job=* \
+        -Dfs.permissions.umask-mode=002 \
+        -Dmapreduce.map.speculative=true \
+        -Dmapreduce.output.fileoutputformat.compress=true \
+        -Dmapreduce.output.fileoutputformat.compress.codec=org.apache.hadoop.io.compress.BZip2Codec \
+        -Dmapreduce.fileoutputcommitter.marksuccessfuljobs=true "
+
+PIG_CMD_BIG="$PIG_CMD \
+        -Dpig.maxCombinedSplitSize=2147483648 \
+        -Dmapreduce.job.split.metainfo.maxsize=20000000 \
+        -Dmapreduce.reduce.memory.mb=3072 \
+        -Dmapreduce.map.memory.mb=3072 \
+        -Dmapreduce.map.java.opts=\"-Xmx2560M\" "
+
+
+alias pigcli='$PIG_CMD'
+alias pigcli_big='$PIG_CMD_BIG'
+
+
+# hbase
+function hbc()
+{
+    echo "create '$1', {NAME => '$2', COMPRESSION => 'GZ', BLOCKSIZE => '1048576'};" \
+         "grant '$USER', 'RWXCA', '$1';"    \
+         "grant '`whoami`', 'RWXCA', '$1';" | hbase shell
+}
+
+function hbd()
+{
+    echo "disable '$@';" \
+         "drop '$@';"    | hbase shell
+}
