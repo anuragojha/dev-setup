@@ -2,9 +2,7 @@ echo "Installing brew "
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 echo "Installing Cask "
-brew install caskroom/cask/brew-cask
 brew tap caskroom/cask
-brew tap caskroom/versions
 brew tap buo/cask-upgrade    # needed for brew cu
 
 echo "Updating app lists"
@@ -16,7 +14,6 @@ brew cu                      # updates all installed casks
 echo "Installing apps"
 brew cask install atom
 brew cask install textmate
-brew cask install libreoffice
 brew cask install evernote
 brew cask install adobe-reader
 
