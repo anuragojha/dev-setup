@@ -4,6 +4,7 @@ echo "Installing brew "
 echo "Installing Cask "
 brew install caskroom/cask/brew-cask
 brew tap caskroom/cask
+brew tap caskroom/versions
 
 echo "Updating app lists"
 brew update
@@ -18,9 +19,9 @@ brew cask install evernote
 brew cask install adobe-reader
 
 echo "Installing dev tools"
-brew cask install java
 brew cask install caskroom/versions/java7
-brew install python
+brew cask install caskroom/versions/java8
+brew cask install java
 brew install python3
 brew cask install iterm2
 brew cask install github-desktop
